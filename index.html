@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INK MAESTRO | Tattoo & Ink Art</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070707;
+    color: white;
+    line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(circle at center,
+        #242424 0%,
+        #0b0b0b 55%,
+        #000 100%);
+}
+
+.hero {
+    max-width: 850px;
+}
+
+.logo {
+    width: 175px;
+    height: 175px;
+    margin: 0 auto 25px;
+
+    border: 2px solid #ddd;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    background: #000;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 58px;
+    font-weight: 900;
+    letter-spacing: -5px;
+}
+
+.brand {
+    font-size: clamp(38px, 7vw, 68px);
+    letter-spacing: 9px;
+    font-weight: 900;
+}
+
+.tagline {
+    color: #aaa;
+    margin: 12px 0 30px;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+
+    border: 1px solid white;
+    border-radius: 30px;
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: bold;
+    margin: 6px;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* ================= GENERAL ================= */
+
+section {
+    padding: 75px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #999;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    text-align: center;
+}
+
+.about p {
+    max-width: 760px;
+    margin: auto;
+    color: #bbb;
+    font-size: 17px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery {
+    background: #101010;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.photo {
+    height: 310px;
+
+    background: #181818;
+
+    border: 1px solid #333;
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-placeholder {
+    color: #777;
+    text-align: center;
+}
+
+/* ================= SERVICES ================= */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service {
+    background: #121212;
+
+    border: 1px solid #2b2b2b;
+    border-radius: 12px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+}
+
+.service h3 {
+    margin-bottom: 12px;
+}
+
+.service p {
+    color: #aaa;
+}
+
+/* ================= BOOKING ================= */
+
+.booking {
+    background: #101010;
+    text-align: center;
+}
+
+.booking-box {
+    max-width: 720px;
+    margin: auto;
+
+    border: 1px solid #333;
+    border-radius: 15px;
+
+    padding: 45px 25px;
+}
+
+.booking-box p {
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+.whatsapp {
+    background: white;
+    color: black;
+}
+
+.whatsapp:hover {
+    background: #ddd;
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    color: #aaa;
+    margin: 8px;
+}
+
+.social {
+    margin-top: 25px;
+}
+
+.social a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social a:hover {
+    text-decoration: underline;
+}
+
+/* ================= CUSTOMIZATION ================= */
+
+.customize {
+    background: #0d0d0d;
+}
+
+.uploads {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.upload-box {
+    background: #151515;
+
+    border: 1px dashed #555;
+    border-radius: 10px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.upload-box label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.upload-box input {
+    width: 100%;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.note {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #000;
+    text-align: center;
+
+    padding: 30px 20px;
+
+    color: #777;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 750px) {
+
+    .brand {
+        font-size: 34px;
+        letter-spacing: 5px;
+    }
+
+    .photos,
+    .services,
+    .uploads {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        height: 280px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .logo {
+        width: 145px;
+        height: 145px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= HERO ================= -->
+
+<header>
+
+<div class="hero">
+
+    <div class="logo">
+
+        <!-- Your logo will appear here -->
+
+        <img
+            id="logoPreview"
+            alt="INK MAESTRO Logo"
+            style="display:none;"
+        >
+
+        <div id="logoText" class="logo-text">
+            IM
+        </div>
+
+    </div>
+
+    <h1 class="brand">
+        INK MAESTRO
+    </h1>
+
+    <p class="tagline">
+        ART • PRECISION • IDENTITY
+    </p>
+
+    <a href="#booking" class="btn">
+        BOOK AN APPOINTMENT
+    </a>
+
+    <a href="#work" class="btn">
+        VIEW OUR WORK
+    </a>
+
+</div>
+
+</header>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about">
+
+<div class="container">
+
+<h2 class="title">
+    Welcome to INK MAESTRO
+</h2>
+
+<p>
+    Where creativity meets precision. We turn ideas,
+    memories and personal stories into bold and beautiful
+    ink art designed to express your identity.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= WORK ================= -->
+
+<section class="gallery" id="work">
+
+<div class="container">
+
+<h2 class="title">
+    Our Work
+</h2>
+
+<p class="subtitle">
+    Add your tattoo artwork, advertisements or portfolio
+    photos below.
+</p>
+
+
+<div class="photos">
+
+
+<!-- PHOTO 1 -->
+
+<div class="photo">
+
+<img
+    id="photoPreview1"
+    alt="INK MAESTRO Work"
+    style="display:none;"
+>
+
+<span id="photoText1" class="photo-placeholder">
+    YOUR PHOTO 1
+</span>
+
+</div>
+
+
+<!-- PHOTO 2 -->
+
+<div class="photo">
+
+<img
+    id="photoPreview2"
+    alt="INK MAESTRO Work"
+    style="display:none;"
+>
+
+<span id="photoText2" class="photo-placeholder">
+    YOUR PHOTO 2
+</span>
+
+</div>
+
+
+<!-- PHOTO 3 -->
+
+<div class="photo">
+
+<img
+    id="photoPreview3"
+    alt="INK MAESTRO Work"
+    style="display:none;"
+>
+
+<span id="photoText3" class="photo-placeholder">
+    YOUR PHOTO 3
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section>
+
+<div class="container">
+
+<h2 class="title">
+    Our Services
+</h2>
+
+<p class="subtitle">
+    Professional ink artistry created around your style.
+</p>
+
+
+<div class="services">
+
+
+<div class="service">
+
+<h3>
+    Custom Tattoos
+</h3>
+
+<p>
+    Original tattoo designs created specifically
+    around your idea and personality.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<h3>
+    Fine Line
+</h3>
+
+<p>
+    Clean, delicate and detailed artwork
+    with a refined finish.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<h3>
+    Custom Designs
+</h3>
+
+<p>
+    Bring your concept, reference or sketch
+    and let us turn it into art.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="booking" id="booking">
+
+<div class="container">
+
+<div class="booking-box">
+
+<h2 class="title">
+    Book Your Appointment
+</h2>
+
+<p>
+    Tell us the tattoo or service you want,
+    your preferred date and any reference
+    image or idea.
+</p>
+
+
+<a
+    href="https://wa.me/2438160409625?text=Hello%20INK%20MAESTRO%2C%20I%20would%20like%20to%20book%20an%20appointment."
+    class="btn whatsapp"
+    target="_blank"
+>
+
+💬 BOOK ON WHATSAPP
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact">
+
+<div class="container">
+
+<h2 class="title">
+    Contact INK MAESTRO
+</h2>
+
+<p>
+    WhatsApp: +243 816 040 9625
+</p>
+
+
+<div class="social">
+
+<a
+    href="https://wa.me/2438160409625"
+    target="_blank"
+>
+    WhatsApp
+</a>
+
+<a href="#">
+    Instagram
+</a>
+
+<a href="#">
+    Facebook
+</a>
+
+<a href="#">
+    TikTok
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CUSTOMIZE ================= -->
+
+<section class="customize">
+
+<div class="container">
+
+<h2 class="title">
+    Add Your Logo & Photos
+</h2>
+
+<p class="subtitle">
+    Select your logo and advertisement photos
+    from your computer.
+</p>
+
+
+<div class="uploads">
+
+
+<!-- LOGO -->
+
+<div class="upload-box">
+
+<label>
+    LOGO
+</label>
+
+<input
+    id="logoInput"
+    type="file"
+    accept="image/*"
+>
+
+</div>
+
+
+<!-- PHOTO 1 -->
+
+<div class="upload-box">
+
+<label>
+    PHOTO 1
+</label>
+
+<input
+    id="Tattoo1"
+    type="file"
+    accept="image/*"
+>
+
+</div>
+
+
+<!-- PHOTO 2 -->
+
+<div class="upload-box">
+
+<label>
+    PHOTO 2
+</label>
+
+<input
+    id="photoInput2"
+    type="file"
+    accept="image/*"
+>
+
+</div>
+
+
+<!-- PHOTO 3 -->
+
+<div class="upload-box">
+
+<label>
+    PHOTO 3
+</label>
+
+<input
+    id="photoInput3"
+    type="file"
+    accept="image/*"
+>
+
+</div>
+
+
+</div>
+
+
+<p class="note">
+    The selected images will appear immediately on this page.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 INK MAESTRO — All Rights Reserved.
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* LOGO UPLOAD */
+
+document
+.getElementById("logoInput")
+.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    const image =
+        document.getElementById("logoPreview");
+
+    image.src =
+        URL.createObjectURL(file);
+
+    image.style.display = "block";
+
+    document
+        .getElementById("logoText")
+        .style.display = "none";
+
+});
+
+
+/* PHOTO UPLOAD FUNCTION */
+
+function setupPhoto(
+    inputID,
+    imageID,
+    textID
+) {
+
+    document
+    .getElementById(inputID)
+    .addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) return;
+
+        const image =
+            document.getElementById(imageID);
+
+        image.src =
+            URL.createObjectURL(file);
+
+        image.style.display = "block";
+
+        document
+            .getElementById(textID)
+            .style.display = "none";
+
+    });
+
+}
+
+
+/* CONNECT PHOTO UPLOADS */
+
+setupPhoto(
+    "photoInput1",
+    "photoPreview1",
+    "photoText1"
+);
+
+setupPhoto(
+    "photoInput2",
+    "photoPreview2",
+    "photoText2"
+);
+
+setupPhoto(
+    "photoInput3",
+    "photoPreview3",
+    "photoText3"
+);
+
+
+</script>
+
+</body>
+</html>
